@@ -92,6 +92,7 @@ export const usePersonalizedProducts = ({
 		queryFn: async () => {
 			return productService.getPersonalizedProducts({ userId, limit });
 		},
+		enabled: !!userId,
 		placeholderData: (previousData) => previousData,
 	});
 };
