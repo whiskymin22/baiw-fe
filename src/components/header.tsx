@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { User, Menu, LogOut, ShoppingBag } from 'lucide-react';
+import { User, Menu, LogOut, ShoppingBag, ShoppingCart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import * as React from 'react';
 import { useAuth } from '@/context/auth-context';
@@ -43,6 +43,17 @@ export default function Header() {
 					</nav>
 
 					<div className='flex items-center gap-2'>
+						{isAuthenticated && (
+							<Button
+								asChild
+								variant={isActive('/cart') ? 'secondary' : 'ghost'}
+								size='icon'
+							>
+								<Link to='/cart' aria-label='Shopping cart'>
+									<ShoppingCart className='w-5 h-5' />
+								</Link>
+							</Button>
+						)}
 						{isLoading ? (
 							<div className='flex items-center gap-2'>
 								<div className='h-9 w-20 bg-stone-200 rounded-md animate-pulse' />

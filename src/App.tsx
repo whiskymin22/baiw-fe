@@ -5,6 +5,7 @@ import NotFoundPage from "./pages/not-found-page";
 import LoginPage from "./pages/login-page";
 import ProductListPage from "./pages/product-list-page";
 import ProductDetailPage from "./pages/product-detail-page";
+import CartPage from "./pages/cart-page";
 import ProfilePage from "./pages/profile-page";
 import SignupPage from "./pages/signup-page";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -21,6 +22,7 @@ function Router() {
 			<Route path="/signup" element={<SignupPage />} />
 			<Route element={<ProtectedRoute />}>
 				<Route path="/profile" element={<ProfilePage />} />
+				<Route path="/cart" element={<CartPage />} />
 			</Route>
 			<Route path="/products" element={<ProductListPage />} />
 			<Route path="/products/:id" element={<ProductDetailPage />} />

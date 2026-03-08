@@ -94,6 +94,24 @@ export class ProductService {
 		return data.data;
 	};
 
+	removeFromCart = async (
+		productId: string,
+		options?: { size?: string; color?: string },
+	): Promise<{ success: boolean }> => {
+		const { data } = await this.api.delete(`/cart/${productId}`, {
+			data: options,
+		});
+		return data.data;
+	};
+
+	updateCartItem = async (
+		productId: string,
+		options: { size?: string; color?: string; quantity: number },
+	): Promise<{ success: boolean }> => {
+		const { data } = await this.api.patch(`/cart/${productId}`, options);
+		return data.data;
+	};
+
 	getPopularProducts = async (
 		params: { limit?: number } = {},
 		configs?: AxiosRequestConfig,
