@@ -3,7 +3,6 @@ import ProductCard from '@/components/ProductCard';
 import Pagination from '@/components/Pagination';
 import { useWishlist } from '@/hooks/use-products';
 import type { IProduct } from '@/types/product.type';
-import type { ListResponse } from '@/types/list.type';
 
 interface ProfileWishlistTabsProps {
 	page: number;
@@ -22,20 +21,20 @@ export default function ProfileWishlistTabs({
 
 	if (isLoading) {
 		return (
-			<div className='flex-1 flex items-center justify-center'>
-				<div className='animate-spin w-10 h-10 border-2 border-stone-300 border-t-stone-900 rounded-full' />
+			<div className='flex-1 flex items-center justify-center py-12'>
+				<div className='animate-spin w-8 h-8 border-2 border-gray-200 border-t-gray-900 rounded-full' />
 			</div>
 		);
 	}
 
 	if (!data?.data || data.data.length === 0) {
 		return (
-			<div className='flex-1 flex flex-col items-center justify-center text-center p-8 text-stone-600'>
-				<div className='w-16 h-16 bg-stone-100 rounded-full flex items-center justify-center mb-4'>
-					<Heart className='w-8 h-8' />
+			<div className='flex-1 flex flex-col items-center justify-center text-center py-16'>
+				<div className='w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center mb-4'>
+					<Heart className='w-6 h-6 text-gray-400' />
 				</div>
-				<p className='text-lg font-bold mb-2'>No wishlist items yet</p>
-				<p className='text-sm max-w-xs mx-auto'>
+				<p className='text-base font-semibold text-gray-900 mb-1'>No wishlist items yet</p>
+				<p className='text-sm text-gray-500 max-w-xs mx-auto'>
 					Save products you love by clicking the heart icon on product pages.
 				</p>
 			</div>
@@ -50,7 +49,7 @@ export default function ProfileWishlistTabs({
 				))}
 			</div>
 			{data?.meta && data.meta.totalPages > 1 && (
-				<div className='mt-8 pt-4 border-t border-stone-200'>
+				<div className='mt-8 pt-4 border-t border-gray-100'>
 					<Pagination
 						currentPage={page}
 						totalPages={data.meta.totalPages}

@@ -1,13 +1,12 @@
-import * as React from "react";
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
-export type Gender = "all" | "men" | "women" | "unisex";
+export type Gender = 'all' | 'men' | 'women' | 'unisex';
 
 const GENDERS: { value: Gender; label: string }[] = [
-	{ value: "all", label: "All" },
-	{ value: "men", label: "Men" },
-	{ value: "women", label: "Women" },
-	{ value: "unisex", label: "Unisex" },
+	{ value: 'all', label: 'All' },
+	{ value: 'men', label: 'Men' },
+	{ value: 'women', label: 'Women' },
+	{ value: 'unisex', label: 'Unisex' },
 ];
 
 interface GenderFilterProps {
@@ -22,17 +21,17 @@ export default function GenderFilter({
 	className,
 }: GenderFilterProps) {
 	return (
-		<div className={cn("flex flex-wrap gap-2", className)}>
+		<div className={cn('flex flex-wrap gap-1.5', className)}>
 			{GENDERS.map((g) => (
 				<button
 					key={g.value}
-					type="button"
+					type='button'
 					onClick={() => onChange(g.value)}
 					className={cn(
-						"px-3 py-1.5 rounded-lg text-sm font-medium transition-colors",
+						'px-3.5 py-1.5 rounded-full text-xs font-medium transition-all',
 						value === g.value
-							? "bg-stone-800 text-white"
-							: "bg-stone-100 text-stone-600 hover:bg-stone-200"
+							? 'bg-gray-900 text-white shadow-sm'
+							: 'bg-gray-100 text-gray-600 hover:bg-gray-200',
 					)}
 				>
 					{g.label}

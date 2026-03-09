@@ -1,16 +1,15 @@
-import * as React from "react";
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
-export type Category = "all" | "shirts" | "pants" | "dresses" | "jackets" | "shoes" | "accessories";
+export type Category = 'all' | 'shirts' | 'pants' | 'dresses' | 'jackets' | 'shoes' | 'accessories';
 
 const CATEGORIES: { value: Category; label: string }[] = [
-	{ value: "all", label: "All" },
-	{ value: "shirts", label: "Shirts" },
-	{ value: "pants", label: "Pants" },
-	{ value: "dresses", label: "Dresses" },
-	{ value: "jackets", label: "Jackets" },
-	{ value: "shoes", label: "Shoes" },
-	{ value: "accessories", label: "Accessories" },
+	{ value: 'all', label: 'All' },
+	{ value: 'shirts', label: 'Shirts' },
+	{ value: 'pants', label: 'Pants' },
+	{ value: 'dresses', label: 'Dresses' },
+	{ value: 'jackets', label: 'Jackets' },
+	{ value: 'shoes', label: 'Shoes' },
+	{ value: 'accessories', label: 'Accessories' },
 ];
 
 interface CategoryFilterProps {
@@ -25,17 +24,17 @@ export default function CategoryFilter({
 	className,
 }: CategoryFilterProps) {
 	return (
-		<div className={cn("flex flex-wrap gap-2", className)}>
+		<div className={cn('flex flex-wrap gap-1.5', className)}>
 			{CATEGORIES.map((cat) => (
 				<button
 					key={cat.value}
-					type="button"
+					type='button'
 					onClick={() => onChange(cat.value)}
 					className={cn(
-						"px-4 py-2 rounded-full text-sm font-medium transition-colors",
+						'px-3.5 py-1.5 rounded-full text-xs font-medium transition-all',
 						value === cat.value
-							? "bg-stone-900 text-white"
-							: "bg-stone-100 text-stone-700 hover:bg-stone-200"
+							? 'bg-gray-900 text-white shadow-sm'
+							: 'bg-gray-100 text-gray-600 hover:bg-gray-200',
 					)}
 				>
 					{cat.label}

@@ -1,62 +1,60 @@
-import { Truck, Shield, RotateCcw, Sparkles } from "lucide-react";
+import { Truck, Shield, RotateCcw, Sparkles } from 'lucide-react';
 
 const features = [
 	{
 		icon: Truck,
-		title: "FREE SHIPPING",
-		description:
-			"Free delivery on orders over $50. Fast and reliable shipping nationwide.",
+		title: 'Free Shipping',
+		description: 'Free delivery on orders over $50. Fast and reliable shipping nationwide.',
 	},
 	{
 		icon: Shield,
-		title: "SECURE PAYMENT",
-		description:
-			"Your payment information is protected with industry-standard encryption.",
+		title: 'Secure Payment',
+		description: 'Your payment information is protected with industry-standard encryption.',
 	},
 	{
 		icon: RotateCcw,
-		title: "EASY RETURNS",
-		description:
-			"30-day hassle-free returns. Not satisfied? We've got you covered.",
+		title: 'Easy Returns',
+		description: '30-day hassle-free returns. Not satisfied? We\'ve got you covered.',
 	},
 	{
 		icon: Sparkles,
-		title: "AI STYLING",
-		description:
-			"Get personalized outfit recommendations powered by AI. Ask our StyleBot!",
+		title: 'AI Styling',
+		description: 'Get personalized outfit recommendations powered by AI. Ask our StyleBot!',
 	},
 ];
 
 export default function FeaturesSection() {
 	return (
 		<section
-			className="py-16 px-4 bg-stone-100 border-y border-stone-200"
-			data-testid="section-features"
+			className='py-20 px-4 bg-white border-y border-gray-100'
+			data-testid='section-features'
 		>
-			<div className="max-w-7xl mx-auto">
-				<div className="text-center mb-12">
-					<h2 className="text-3xl md:text-4xl font-bold tracking-tight text-stone-900 mb-4">
-						WHY SHOP WITH US
-					</h2>
-					<p className="text-lg text-stone-600 max-w-2xl mx-auto">
-						Quality fashion, exceptional service
+			<div className='max-w-7xl mx-auto'>
+				<div className='text-center mb-14'>
+					<p className='text-sm font-medium text-gray-500 uppercase tracking-wider mb-3'>
+						Why choose us
 					</p>
+					<h2 className='text-3xl md:text-4xl font-bold tracking-tight text-gray-900'>
+						Shopping made better
+					</h2>
 				</div>
 
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
 					{features.map((feature, index) => (
 						<div
 							key={index}
-							className="bg-white border border-stone-200 p-6 rounded-xl hover:shadow-md transition-shadow"
+							className='group relative p-6 rounded-2xl bg-gray-50 hover:bg-white border border-transparent hover:border-gray-200 hover:shadow-lg transition-all duration-300'
 							data-testid={`feature-${index}`}
 						>
-							<div className="w-14 h-14 bg-stone-900 rounded-lg flex items-center justify-center mb-4">
-								<feature.icon className="w-7 h-7 text-white" />
+							<div className='w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300'>
+								<feature.icon className='w-5 h-5 text-white' />
 							</div>
-							<h3 className="text-xl font-bold mb-2 text-stone-900">
+							<h3 className='text-base font-semibold mb-2 text-gray-900'>
 								{feature.title}
 							</h3>
-							<p className="text-stone-600">{feature.description}</p>
+							<p className='text-sm text-gray-500 leading-relaxed'>
+								{feature.description}
+							</p>
 						</div>
 					))}
 				</div>

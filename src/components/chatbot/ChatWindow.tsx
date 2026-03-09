@@ -64,9 +64,8 @@ export const ChatWindow = React.memo(function ChatWindow({
 
 	return (
 		<Card
-			className='border-3 border-foreground flex flex-col overflow-hidden relative pt-0'
+			className='border border-gray-200 flex flex-col overflow-hidden relative pt-0 rounded-2xl shadow-2xl bg-white'
 			style={{
-				boxShadow: 'var(--shadow-2xl)',
 				width: `${size.width}px`,
 				height: `${size.height}px`,
 			}}

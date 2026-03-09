@@ -1,37 +1,31 @@
-import ContactForm from "../contact-form";
+import ContactForm from '../contact-form';
 
 export default function ContactFormSection() {
-    return (
-        <section
-            className="py-16 px-4 bg-background"
-            data-testid="section-contact"
-        >
-            <div className="max-w-4xl mx-auto">
-                <div className="text-center mb-12">
-                    <div
-                        className="inline-block bg-chart-3 border-3 border-foreground px-8 py-4"
-                        style={{ boxShadow: "var(--shadow-lg)" }}
-                    >
-                        <h2
-                            className="text-3xl md:text-4xl font-bold tracking-tight text-background"
-                            data-testid="text-contact-title"
-                        >
-                            GET IN TOUCH
-                        </h2>
-                    </div>
-                    <p className="text-lg text-muted-foreground mt-4 max-w-2xl mx-auto">
-                        Have questions? We'd love to hear from you. Send us a
-                        message and we'll respond as soon as possible.
-                    </p>
-                </div>
+	return (
+		<section
+			className='py-20 px-4 bg-gray-50'
+			data-testid='section-contact'
+		>
+			<div className='max-w-3xl mx-auto'>
+				<div className='text-center mb-14'>
+					<p className='text-sm font-medium text-gray-500 uppercase tracking-wider mb-3'>
+						Contact
+					</p>
+					<h2
+						className='text-3xl md:text-4xl font-bold tracking-tight text-gray-900'
+						data-testid='text-contact-title'
+					>
+						Get in Touch
+					</h2>
+					<p className='text-gray-500 mt-4 max-w-xl mx-auto'>
+						Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+					</p>
+				</div>
 
-                <div
-                    className="bg-card border-3 border-foreground p-8"
-                    style={{ boxShadow: "var(--shadow-xl)" }}
-                >
-                    <ContactForm />
-                </div>
-            </div>
-        </section>
-    );
+				<div className='bg-white rounded-2xl border border-gray-200 shadow-sm p-8'>
+					<ContactForm />
+				</div>
+			</div>
+		</section>
+	);
 }

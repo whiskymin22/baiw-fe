@@ -56,216 +56,93 @@ export default function SignupPage() {
 			const _error = error as ApiErrorResponse;
 			toast.error(
 				_error.response?.data?.message || 'Failed to create account',
-				{}
 			);
 		}
 	};
 
+	const fields = [
+		{ name: 'username' as const, label: 'Username', type: 'text', placeholder: 'jane_doe', autoComplete: 'username' },
+		{ name: 'email' as const, label: 'Email', type: 'email', placeholder: 'name@example.com', autoComplete: 'email' },
+		{ name: 'password' as const, label: 'Password', type: 'password', placeholder: 'Create a password', autoComplete: 'new-password' },
+		{ name: 'confirmPassword' as const, label: 'Confirm Password', type: 'password', placeholder: 'Confirm password', autoComplete: 'new-password' },
+	];
+
 	return (
-		<div className='min-h-screen bg-background flex flex-col'>
+		<div className='min-h-screen bg-white flex flex-col'>
 			<Header />
 			<main
-				className='relative flex-1 flex items-center justify-center p-4 overflow-hidden py-12'
+				className='flex-1 flex items-center justify-center p-4 py-12'
 				id='main-content'
 			>
-				<div
-					className='absolute top-10 right-10 w-32 h-32 bg-chart-3 border-3 border-foreground -rotate-12 hidden lg:block'
-					style={{ boxShadow: 'var(--shadow-lg)' }}
-				/>
-				<div
-					className='absolute bottom-32 left-20 w-40 h-40 rounded-full bg-chart-1 border-3 border-foreground hidden lg:block'
-					style={{ boxShadow: 'var(--shadow-xl)' }}
-				/>
-
-				<div className='relative z-10 w-full max-w-md'>
-					<div
-						className='bg-card border-3 border-foreground p-8'
-						style={{ boxShadow: 'var(--shadow-2xl)' }}
-					>
-						<div className='mb-8'>
-							<h1
-								className='text-3xl font-bold tracking-tight mb-2'
-								data-testid='text-signup-title'
-							>
-								SIGN UP
-							</h1>
-							<p className='text-muted-foreground'>
-								Create your account to start learning
-							</p>
-						</div>
-
-						<form
-							onSubmit={form.handleSubmit(onSubmit)}
-							className='space-y-4'
+				<div className='w-full max-w-sm'>
+					<div className='text-center mb-8'>
+						<h1
+							className='text-2xl font-bold text-gray-900 tracking-tight'
+							data-testid='text-signup-title'
 						>
-							<Controller
-								name='username'
-								control={form.control}
-								render={({ field, fieldState }) => (
-									<div className='space-y-2'>
-										<Label
-											htmlFor='username'
-											className='uppercase font-bold text-sm'
-										>
-											Username
-										</Label>
-										<Input
-											{...field}
-											id='username'
-											name='username'
-											type='text'
-											placeholder='jane_doe'
-											className='border-3'
-											data-testid='input-username'
-											aria-invalid={fieldState.invalid}
-											autoComplete='username'
-											autoCapitalize='none'
-											spellCheck={false}
-										/>
-										{fieldState.error && (
-											<p
-												className='text-sm text-destructive'
-												role='alert'
-												aria-live='polite'
-											>
-												{fieldState.error.message}
-											</p>
-										)}
-									</div>
-								)}
-							/>
-
-							<Controller
-								name='email'
-								control={form.control}
-								render={({ field, fieldState }) => (
-									<div className='space-y-2'>
-										<Label
-											htmlFor='email'
-											className='uppercase font-bold text-sm'
-										>
-											Email
-										</Label>
-										<Input
-											{...field}
-											id='email'
-											name='email'
-											type='email'
-											placeholder='name@example.com'
-											className='border-3'
-											data-testid='input-email'
-											aria-invalid={fieldState.invalid}
-											autoComplete='email'
-											inputMode='email'
-											spellCheck={false}
-										/>
-										{fieldState.error && (
-											<p
-												className='text-sm text-destructive'
-												role='alert'
-												aria-live='polite'
-											>
-												{fieldState.error.message}
-											</p>
-										)}
-									</div>
-								)}
-							/>
-
-							<Controller
-								name='password'
-								control={form.control}
-								render={({ field, fieldState }) => (
-									<div className='space-y-2'>
-										<Label
-											htmlFor='password'
-											className='uppercase font-bold text-sm'
-										>
-											Password
-										</Label>
-										<Input
-											{...field}
-											id='password'
-											name='password'
-											type='password'
-											placeholder='Create a password…'
-											className='border-3'
-											data-testid='input-password'
-											aria-invalid={fieldState.invalid}
-											autoComplete='new-password'
-										/>
-										{fieldState.error && (
-											<p
-												className='text-sm text-destructive'
-												role='alert'
-												aria-live='polite'
-											>
-												{fieldState.error.message}
-											</p>
-										)}
-									</div>
-								)}
-							/>
-
-							<Controller
-								name='confirmPassword'
-								control={form.control}
-								render={({ field, fieldState }) => (
-									<div className='space-y-2'>
-										<Label
-											htmlFor='confirmPassword'
-											className='uppercase font-bold text-sm'
-										>
-											Confirm Password
-										</Label>
-										<Input
-											{...field}
-											id='confirmPassword'
-											name='confirmPassword'
-											type='password'
-											placeholder='Confirm password…'
-											className='border-3'
-											data-testid='input-confirm-password'
-											aria-invalid={fieldState.invalid}
-											autoComplete='new-password'
-										/>
-										{fieldState.error && (
-											<p
-												className='text-sm text-destructive'
-												role='alert'
-												aria-live='polite'
-											>
-												{fieldState.error.message}
-											</p>
-										)}
-									</div>
-								)}
-							/>
-
-							<Button
-								type='submit'
-								className='w-full font-bold uppercase mt-6'
-								data-testid='button-signup'
-								disabled={isSubmitting}
-								aria-busy={isSubmitting}
-							>
-								{isSubmitting
-									? 'Creating account…'
-									: 'Create Account'}
-							</Button>
-						</form>
-
-						<div className='mt-6 text-center'>
-							<p className='text-sm text-muted-foreground'>
-								Already have an account?{' '}
-								<Link to='/login' data-testid='link-login'>
-									<span className='font-bold underline cursor-pointer hover-elevate'>
-										Log In
-									</span>
-								</Link>
-							</p>
-						</div>
+							Create account
+						</h1>
+						<p className='text-sm text-gray-500 mt-2'>
+							Join us and start shopping your style
+						</p>
 					</div>
+
+					<form
+						onSubmit={form.handleSubmit(onSubmit)}
+						className='space-y-4'
+					>
+						{fields.map(({ name, label, type, placeholder, autoComplete }) => (
+							<Controller
+								key={name}
+								name={name}
+								control={form.control}
+								render={({ field, fieldState }) => (
+									<div className='space-y-2'>
+										<Label htmlFor={name} className='text-sm font-medium text-gray-700'>
+											{label}
+										</Label>
+										<Input
+											{...field}
+											id={name}
+											type={type}
+											placeholder={placeholder}
+											className='h-11 rounded-xl border-gray-200 focus:border-gray-400 focus:ring-gray-400'
+											data-testid={`input-${name === 'confirmPassword' ? 'confirm-password' : name}`}
+											aria-invalid={fieldState.invalid}
+											autoComplete={autoComplete}
+											spellCheck={false}
+										/>
+										{fieldState.error && (
+											<p className='text-xs text-red-500' role='alert'>
+												{fieldState.error.message}
+											</p>
+										)}
+									</div>
+								)}
+							/>
+						))}
+
+						<Button
+							type='submit'
+							className='w-full h-11 rounded-full font-medium bg-gray-900 hover:bg-gray-800 mt-2'
+							data-testid='button-signup'
+							disabled={isSubmitting}
+							aria-busy={isSubmitting}
+						>
+							{isSubmitting ? 'Creating account...' : 'Create Account'}
+						</Button>
+					</form>
+
+					<p className='mt-8 text-center text-sm text-gray-500'>
+						Already have an account?{' '}
+						<Link
+							to='/login'
+							data-testid='link-login'
+							className='font-medium text-gray-900 hover:text-gray-700 transition-colors'
+						>
+							Sign in
+						</Link>
+					</p>
 				</div>
 			</main>
 			<Footer />

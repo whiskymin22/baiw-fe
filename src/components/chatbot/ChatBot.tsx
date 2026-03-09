@@ -62,17 +62,17 @@ export default function ChatBot({
 	if (!isOpen) {
 		return (
 			<div
-				className='fixed bottom-8 right-8 z-50'
+				className='fixed bottom-6 right-6 z-50'
 				data-testid='chatbot-container'
 			>
 				<Button
 					size='icon'
-					className='w-16 h-16 rounded-full border-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105'
+					className='w-14 h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gray-900 hover:bg-gray-800 text-white'
 					onClick={() => setIsOpen(true)}
 					data-testid='button-open-chat'
 					aria-label='Open chat'
 				>
-					<MessageCircle aria-hidden='true' className='w-8 h-8' />
+					<MessageCircle aria-hidden='true' className='w-6 h-6' />
 				</Button>
 			</div>
 		);
@@ -80,7 +80,7 @@ export default function ChatBot({
 
 	return (
 		<div
-			className='fixed bottom-8 right-8 z-50'
+			className='fixed bottom-6 right-6 z-50'
 			data-testid='chatbot-container'
 		>
 			<ChatWindow
